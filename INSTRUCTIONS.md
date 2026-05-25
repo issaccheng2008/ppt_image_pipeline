@@ -5,6 +5,7 @@
 - `image_tasks_for_codex.csv`
 - `image_tasks_for_codex.json`
 - `references.csv`
+- `README_naming_and_manifest.md`
 请优先读取 `image_tasks_for_codex.csv` 或 `image_tasks_for_codex.json`。每一行是一个配图任务，`task_id` 对应原文档的 PPT 页码与图片指引，例如 `P07-B` 表示“第 7 页，图片指引 B”。
 ## 总体要求
 请创建一个 Python 项目，目录结构如下：
