@@ -15,8 +15,8 @@ ppt_image_pipeline/
     image_tasks_for_codex.csv
     image_tasks_for_codex.json
     references.csv
-    pdfs/
   output/
+    files/
     images/
     placeholders/
     metadata/
@@ -89,7 +89,7 @@ P07-B__ionic_liquid_optimization_reuse_fig8_fig9__R13_Fig8_Fig9_pdfp9_p10__extra
 - `P07-B`
 - `P09-B`
 要求：
-- 从互联网下载获取 PDF，下载到”papers“文件夹中
+- 从互联网下载获取 PDF，下载到"files"文件夹中
 - 对于明确给出图号/页码的任务，优先裁取局部：
   - `P07-A`: 文献[13] Fig. 3，PDF 第 4/12 页
   - `P07-B`: 文献[13] Fig. 8，PDF 第 9/12 页；Fig. 9，PDF 第 10/12 页
