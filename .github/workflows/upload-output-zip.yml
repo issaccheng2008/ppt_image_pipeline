@@ -1,0 +1,26 @@
+name: Upload output zip artifact
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure zip exists
+        run: |
+          if [ ! -f artifacts/output_images_and_metadata.zip ]; then
+            echo "artifacts/output_images_and_metadata.zip not found in repo workspace." >&2
+            echo "Please upload/copy the zip into artifacts/ before running this workflow." >&2
+            exit 1
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: output_images_and_metadata
+          path: artifacts/output_images_and_metadata.zip
+          if-no-files-found: error
