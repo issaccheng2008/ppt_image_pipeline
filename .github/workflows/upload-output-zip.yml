@@ -1,22 +1,33 @@
-name: Upload output zip artifact
+name: Build and upload output zip artifact
 
 on:
   workflow_dispatch:
 
 jobs:
-  upload:
+  build-and-upload:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Ensure zip exists
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
         run: |
-          if [ ! -f artifacts/output_images_and_metadata.zip ]; then
-            echo "artifacts/output_images_and_metadata.zip not found in repo workspace." >&2
-            echo "Please upload/copy the zip into artifacts/ before running this workflow." >&2
-            exit 1
-          fi
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run pipeline
+        run: python scripts/run_pipeline.py
+
+      - name: Create zip artifact from output
+        run: |
+          mkdir -p artifacts
+          zip -r artifacts/output_images_and_metadata.zip output
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
