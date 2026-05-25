@@ -1,0 +1,7 @@
+pandas
+openpyxl
+requests
+Pillow
+matplotlib
+PyMuPDF
+rdkit

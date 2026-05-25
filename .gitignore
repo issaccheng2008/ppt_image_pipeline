@@ -1,0 +1,10 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Generated pipeline outputs
+output/
+
+# Local artifacts (not for git tracking)
+artifacts/
+*.zip
